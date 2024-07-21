@@ -204,9 +204,34 @@ const contactContent = (() => {
         listPhone.appendChild(inputPhone);
 
         const listDate = document.createElement('li');
+        const labelDate = document.createElement('label');
+        labelDate.setAttribute('for', 'date');
+        labelDate.textContent = "DATE";
+
+        const inputDate = document.createElement('input');
+        inputDate.setAttribute('type', 'date');
+        inputDate.setAttribute('name', 'date');
+        inputDate.setAttribute('id', 'date');
+        inputDate.required = true;
+
+
+        listDate.appendChild(labelDate);
+        listDate.appendChild(inputDate);
 
         const listGuests = document.createElement('li');
+        const labelGuests = document.createElement('label');
+        labelGuests.setAttribute('for', 'guests');
+        labelGuests.textContent = "PARTY OF";
 
+        const inputGuests = document.createElement('input');
+        inputGuests.setAttribute('type', 'guests');
+        inputGuests.setAttribute('name', 'guests');
+        inputGuests.setAttribute('id', 'guests');
+        inputGuests.required = true;
+
+
+        listGuests.appendChild(labelGuests);
+        listGuests.appendChild(inputGuests);
 
         reserveForm.appendChild(listName);
         reserveForm.appendChild(listPhone);
@@ -215,10 +240,13 @@ const contactContent = (() => {
 
 
         const submitButton = document.createElement('button');
+        submitButton.textContent = "Book Now";
+
 
 
 
         formContainer.appendChild(reserveForm);
+        formContainer.appendChild(submitButton);
 
         contentRight.appendChild(header);
         contentRight.appendChild(formContainer);

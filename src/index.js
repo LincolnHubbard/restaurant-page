@@ -1,4 +1,5 @@
 console.log('test');
+//hack together enum 
 
 const mainContent = (() => {
 
@@ -44,27 +45,82 @@ const menuContent = (() => {
 
 })();
 
+const contactContent = (() => {
+    const loadContactContent = () => {
+        const container = document.getElementById("content");
+        container.textContent = "";
+    };
+
+    return {loadContactContent};
+})();
+
 
 const displayController = (() => {
     let homeButton;
     let menuButton;
     let contactButton;
 
+    const EActivePage = Object.freeze({
+        HOME: 'home',
+        MENU: 'menu',
+        CONTACT: 'contact',
+    });
+
+    let activePage;
+
     const createDisplay = () => {
         mainContent.loadMainContent();
 
         homeButton = document.getElementById("home");
+        homeButton.classList.toggle('underline');
+        activePage = EActivePage.HOME;
         homeButton.addEventListener('click', () =>{
-            homeButton.classList.toggle('underline');
+            if (activePage == EActivePage.HOME) return;
+            activePage = EActivePage.HOME;
+            changeListUnderline();
             mainContent.loadMainContent();
         })
 
         menuButton = document.getElementById("menu");
         menuButton.addEventListener('click', () => {
-            menuButton.classList.toggle('underline');
+            if (activePage === EActivePage.MENU) return;
+            activePage = EActivePage.MENU;
+            changeListUnderline();
             menuContent.loadMenuContent();
             console.log('menu clicked');
         })
+
+        contactButton = document.getElementById("contact");
+        contactButton.addEventListener('click', () => {
+            if (activePage === EActivePage.CONTACT) return;
+            activePage = EActivePage.CONTACT;
+            changeListUnderline();
+            contactContent.loadContactContent();
+            console.log('contact clicked');
+        })
+    };
+
+    const changeListUnderline = () => {
+        switch (activePage) {
+            case EActivePage.HOME:
+                homeButton.classList.add('underline');
+                menuButton.classList.remove('underline');
+                contactButton.classList.remove('underline');
+                break;
+            case EActivePage.MENU:
+                homeButton.classList.remove('underline');
+                menuButton.classList.add('underline');
+                contactButton.classList.remove('underline');
+                break;
+            case EActivePage.CONTACT:
+                homeButton.classList.remove('underline');
+                menuButton.classList.remove('underline');
+                contactButton.classList.add('underline');
+                break;
+        
+            default:
+                break;
+        }
     };
 
     return {createDisplay};

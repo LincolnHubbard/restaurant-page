@@ -39,6 +39,45 @@ const menuContent = (() => {
     const loadMenuContent = () => {
         const container = document.getElementById("content");
         container.textContent = "";
+
+        const menuContainer = document.createElement('div');
+        menuContainer.id = "menu-container";
+        menuContainer.appendChild(createSection1());
+
+        container.appendChild(menuContainer);
+    };
+
+    const createSection1 = () => {
+        const section = document.createElement('div');
+        section.className = "menu-section";
+
+        let sectionHeader = document.createElement('h2');
+        sectionHeader.textContent = "STARTERS";
+
+        const menuItem1 = document.createElement('div');
+        let itemName1 = document.createElement('p');
+        itemName1.textContent = "Grilled Peach & Burrata Salad";
+        let itemPrice1 = document.createElement('span');
+        itemPrice1.textContent = "$12";
+        menuItem1.appendChild(itemName1);
+        menuItem1.appendChild(itemPrice1);
+
+        const menuItem2 = document.createElement('div');
+        let itemName2 = document.createElement('p');
+        itemName2.textContent = "Tomato Basil Bruschetta";
+        let itemPrice2 = document.createElement('span');
+        itemPrice2.textContent = "$8";
+        menuItem2.appendChild(itemName2);
+        menuItem2.appendChild(itemPrice2);
+
+        section.appendChild(sectionHeader);
+        section.appendChild(menuItem1);
+        section.appendChild(menuItem2);
+        return section;
+    };
+
+    const createSection2 = () => {
+
     };
 
     return {loadMenuContent};
@@ -126,6 +165,6 @@ const displayController = (() => {
     return {createDisplay};
 })();
 
-// page = displayController.createDisplay();
+page = displayController.createDisplay();
 
 // mainContent.loadMainContent();

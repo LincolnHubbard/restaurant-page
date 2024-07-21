@@ -6,6 +6,7 @@
     padding: 0;
     --header-color: #b45309;
     --footer-color: #451a03;
+    --menu-item-color: #92400e;
 }
 
 body, html{
@@ -148,9 +149,45 @@ footer ul{
     gap: 50px;
 }
 
-/* 
-#follow{
+/* MENU CONTENT */
+#menu-container{
+    background-color: white;
+    width: 60%;
+    box-shadow: 10px 10px 30px 10px rgba(122, 121, 121, 0.205);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 100%;
+    margin-bottom: 5rem;
+    padding: 1rem;
+}
+
+.menu-section{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 90%;
+}
+
+.menu-section h2{
+    align-self: center;
+}
+
+.menu-item{
+    display: flex;
+    justify-content: space-between;
+    justify-self: flex-start;
+}
+
+.menu-item p{
+    font-weight: 500;
+    color: var(--menu-item-color)
+}
+
+#price{
+    justify-self: end;
+    font-weight: 300;
     font-style: italic;
-    margin-bottom: 5px;
-    font-size: .8rem;
-} */
+}
+

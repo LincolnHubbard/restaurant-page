@@ -126,6 +126,6 @@ const displayController = (() => {
     return {createDisplay};
 })();
 
-page = displayController.createDisplay();
+// page = displayController.createDisplay();
 
 // mainContent.loadMainContent();

@@ -1,4 +1,5 @@
 console.log('test');
+import './style.css';
 //hack together enum 
 
 const mainContent = (() => {

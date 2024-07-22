@@ -5,22 +5,19 @@ module.exports = {
     entry: './src/index.js',
     plugins: [
         new HtmlWebpackPlugin({
-            title: 'Restaurant Home Page',
+            title: 'Sunset Bistro',
             template: './src/index.html',
         }),
     ],
     output: {
         filename: 'main.js',
         path: path.resolve(__dirname, 'dist'),
+        clean: true,
     },
     module: {
         rules: [
             {
                 test: /\.css$/i,
-                use: ['style-loader', 'css-loader'],
-            },
-            {
-                test: /\.variables\.css$/,
                 use: ['style-loader', 'css-loader'],
             },
         ],
